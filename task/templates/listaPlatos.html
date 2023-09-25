@@ -1,0 +1,35 @@
+
+{% extends 'base1.html' %}
+
+{% block content %}
+{{mensaje}}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Plato</th>
+        <th scope="col">Clase</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Contenido Principal</th>
+        <th scope="col">Costo</th>
+        <th scope="col">Activo</th>        
+        <th scope="col">Fecha Registro</th>        
+      </tr>
+    </thead>
+    <tbody>
+    {% for plato in platos %}
+      <tr>
+        <th>{{plato.id}}</th>
+        <td>{{plato.plato}}</td>
+        <td>{{plato.clase}}</td>
+        <td>{{plato.tipo}}</td>
+        <td>{{plato.contenido}}</td>
+        <td>{{plato.costo}}</td>
+        <td>{{plato.estado}}</td>
+        <td>{{plato.fecha_registro}}</td>
+      </tr>      
+    {% endfor %}
+    </tbody>
+  </table>
+
+  {% endblock %}

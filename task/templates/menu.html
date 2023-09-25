@@ -1,0 +1,22 @@
+
+{% extends 'base1.html' %}
+
+{% block content %}
+
+<form action="", method="POST">
+    {% csrf_token %}
+    <label>plato</label><br>
+    <input type="text" name="plato"><br>
+    <label>tipo</label><br>
+    <input type="text" name="tipo"><br>
+
+    <button>Enviar</button>
+
+    {% if messages %}
+    {% for message in messages %}
+    <h2 style="color: green;">{{message}}</h2>
+    {% endfor %}
+    {% endif %}
+</form>
+
+{% endblock %}
