@@ -1,9 +1,10 @@
-
 {% extends 'base1.html' %}
+{% block titulo %} Lista Menu {% endblock %}
 
 {% block content %}
 {{mensaje}}
-<table class="table">
+<div class="table-responsive table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+<table class="table caption-top">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -19,7 +20,7 @@
     <tbody>
     {% for plato in platos %}
       <tr>
-        <th>{{plato.id}}</th>
+        <th scope="row">{{plato.id}}</th>
         <td>{{plato.plato}}</td>
         <td>{{plato.clase}}</td>
         <td>{{plato.tipo}}</td>
@@ -31,5 +32,5 @@
     {% endfor %}
     </tbody>
   </table>
-
+</div>
   {% endblock %}

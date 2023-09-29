@@ -1,94 +1,127 @@
 {% extends 'base1.html' %}
 
+{% block titulo %} Nuevo {% endblock %}
+
 {% block content %}
 
 {{mensaje}}
 {{Error}}
-<form action="", method="POST">
+
+<form action="" method="POST" class="row g-3">
     {% csrf_token %}
+
+    <div class="form-group" style="font-size:18px; padding-bottom:15px; padding-top:20px; margin-bottom:20px;border-bottom: 1px solid #000;">
+        <div>
+            <label class="form-label">Producto</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="tipo" value="sopa">
+            <label class="form-check-label">
+                Sopa
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="tipo" value="segundo">
+            <label class="form-check-label">
+                Segundo
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="" class="form-label">Platillo</label>
+        <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="" name="plato">
+    </div>
+
+    <div class="form-group">
+        <label for="" class="form-label">Contenido principal</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="pollo" id="" name="contenido[]">
+            <label class="form-check-label" for="">
+                Pollo
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="chancho" id="" name="contenido[]">
+            <label class="form-check-label" for="">
+                Chancho
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="chorizo" id="" name="contenido[]">
+            <label class="form-check-label" for="">
+                Chorizo
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="arroz" id="" name="contenido[]">
+            <label class="form-check-label" for="">
+                Arroz
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="fideo" id="" name="contenido[]">
+            <label class="form-check-label" for="">
+                Fideo
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="papa" id="" name="contenido[]">
+            <label class="form-check-label" for="">
+                Papa
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="tunta" id="" name="contenido[]">
+            <label class="form-check-label" for="">
+                Tunta
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div><label class="form-label">Categoria</label></div>
+        <div class="form-check form-check-inline">
+            <input checked class="form-check-input" type="radio" name="clase" value="none">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Ninguno
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="clase" value="seco">
+            <label class="form-check-label" for="flexRadioDefault2">
+                Seco
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="clase" value="guiso">
+            <label class="form-check-label" for="flexRadioDefault2">
+                Guiso
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div><label class="form-label">Nivel materia prima</label></div>
+        <select class="form-select" aria-label="Large select example" name="costo">
+            <option selected value="normal">Normal</option>
+            <option value="alto">Alto</option>
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <div><label class="form-label">Activo</label></div>
+        <select class="form-select" aria-label="Large select example" name="activo">
+            <option selected value="1">Si</option>
+            <option value="0">No</option>
+        </select>
+    </div>
+
+    <div>
+        <button class="btn btn-primary">Enviar</button>
+    </div>
     
-    <label>Tipo de producto</label>
-    <input type="radio" name="tipo" value="sopa" {{ producto }}><label>Sopa</label>    
-    <input type="radio" name="tipo" value="segundo" {{ producto }}><label >Segundo</label>    
-    <br>
-
-
-    <label>Nombre del producto/platillo</label>
-    <input type="text" name="plato" value="">
-    <br>
-
-    <label>Contenido principal</label>
-    <!--<select name="contenido">
-        <option selected>Open this select menu</option>        
-        <option value="arroz">Arroz</option>       
-        <option value="cereal">Cereal</option>       
-        <option value="crema">Crema</option>       
-        <option value="chuño">Chuño</option>       
-        <option value="lechuga">Lechuga</option>       
-        <option value="tunta">Tunta</option>               
-        <option value="fideo">Fideo</option>
-    </select>-->    
-    <input type="checkbox" name="contenido[]" value="pollo"/>
-    <label>Pollo</label>
-    <input type="checkbox" name="contenido[]" value="chancho"/>
-    <label>Chancho</label>
-    <input type="checkbox" name="contenido[]" value="carne"/>
-    <label>Carne</label>
-    <input type="checkbox" name="contenido[]" value="arroz"/>
-    <label>Arroz</label>
-    <input type="checkbox" name="contenido[]" value="fideo"/>
-    <label>Fideo</label>
-    <input type="checkbox" name="contenido[]" value="cereal"/>
-    <label>Cereal</label>  
-    <input type="checkbox" name="contenido[]" value="chuño"/>
-    <label>Chuño</label>
-    <input type="checkbox" name="contenido[]" value="tunta"/>
-    <label>Tunta</label>
-    <input type="checkbox" name="contenido[]" value="lechuga"/>
-    <label>Lechuga</label>
-    <input type="checkbox" name="contenido[]" value="papa"/>
-    <label>Papa</label>
-
-    <br>
-
-    <!--<input type="checkbox" name="checks[]" value="1" />
-    <input type="checkbox" name="checks[]" value="2" />
-    <input type="checkbox" name="checks[]" value="3" />
-    <input type="checkbox" name="checks[]" value="4" />-->
-
-    <label>Categoria</label>
-    <!--<select name="clase">
-        <option selected>Open this select menu</option>
-        <option value="guiso">Guiso</option>
-        <option value="seco">Seco</option>   
-        <option value="sopa">Sopa</option>     
-    </select>  -->
-    <input type="radio" name="clase" value="none" checked><label>Ninguno</label>    
-    <input type="radio" name="clase" value="seco"><label>Seco</label>    
-    <input type="radio" name="clase" value="guiso"><label >Guiso</label> 
-    <br>
-
-
-    <label>Nivel materia prima</label>
-    <select name="costo">
-        <option selected value="normal">Normal</option>        
-        <option value="alto">Alto</option>       
-    </select>
-    <!--<input type="radio" name="costo" value="1" checked><label>Normal</label>    
-    <input type="radio" name="costo" value="0"><label>Alto</label>-->
-    <br>
-
-    <label>Activo</label>
-    <!--<input type="radio" name="activo" value="1" checked><label>Si</label>
-    <input type="radio" name="activo" value="0"><label>No</label>-->
-
-    <select name="activo">
-        <option selected value="1">Si</option>        
-        <option value="0">No</option>       
-    </select>
-     <br>
-    
-    <button>Enviar</button>
 </form>
 
 {% endblock %}

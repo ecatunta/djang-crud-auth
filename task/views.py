@@ -131,11 +131,11 @@ def menu2(request):
 
         except:
             return render(request, 'menu2.html', {
-                'Error': 'Por favor elija el tipo de producto',
+                'Error': 'Por favor elija el tipo de producto**',
                 'producto':''
             })
 
-        print(request.POST)
+        print("request.POST ---> " ,request.POST)
         savePlato = Plato()
 
         savePlato.tipo = tipo_producto
